@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block header %}
+    <h2>Log in your account</h2>
+{% endblock %}
+{% block content %}
+
+    <form action="{% url 'login' %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form %}   {# {{ form.as_p }} 同样的效果，显示表单#}
+
+        {% buttons %}
+            <button name="submit" type="submit" class="btn btn-primary">登陆</button>
+        {% endbuttons %}
+
+        <input type="hidden" name="next" value="{% url 'index' %}"/>
+    </form>
+{% endblock %}
