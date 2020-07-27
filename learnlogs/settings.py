@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -128,21 +128,21 @@ LOGIN_URL = '/login/'
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
-# heroku设置
-cwd=os.getcwd()
-if cwd == '/app' or cwd[:4] == '/temp':
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(default='postgres://localhot'),
-    }
-
-    #让request.is_secure()承认X-FOEWARDED_PROTO头
-    SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO','https')
-    # 支持所有主机头
-    ALLOWED_HOSTS = ['0.0.0.0']
-    #静态资产配置
-    BASE_DIR=os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT='staticfiles'
-    STATICFILES_DIR=(
-        os.path.join(BASE_DIR,'static')
-    )
+# # heroku设置
+# cwd=os.getcwd()
+# if cwd == '/app' or cwd[:4] == '/temp':
+#     import dj_database_url
+#     DATABASES = {
+#         'default': dj_database_url.config(default='postgres://localhot'),
+#     }
+#
+#     #让request.is_secure()承认X-FOEWARDED_PROTO头
+#     SECURE_PROXY_SSL_HEADER=('HTTP_X_FORWARDED_PROTO','https')
+#     # 支持所有主机头
+#     ALLOWED_HOSTS = ['*']
+#     #静态资产配置
+#     BASE_DIR=os.path.dirname(os.path.abspath(__file__))
+#     STATIC_ROOT='staticfiles'
+#     STATICFILES_DIR=(
+#         os.path.join(BASE_DIR,'static')
+#     )
