@@ -36,8 +36,7 @@ def new_topic(request):
     return render(request,'new_topic.html',locals())
 
 @login_required
-def new_entry(request,topic_id):
-    topic=Topic.objects.get(id=topic_id)
+def new_entry(request):
 
     if request.method=='POST':
         form=EntryForm()
@@ -49,7 +48,7 @@ def new_entry(request,topic_id):
             new_entry=form.save(commit=False)
             new_entry.topic=topic
             new_entry.save()
-            return HttpResponseRedirect(reverse('topic'),args=[topic_id])
+            return HttpResponseRedirect(reverse('topic'))
 
     return render(request,'new_entry.html',locals())
 

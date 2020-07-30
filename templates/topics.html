@@ -4,7 +4,6 @@
     <p>Topics</p>
 {% endblock header %}
 {% block content %}
-
     <ul>
         {% for topic in topics  %}
             <li>
@@ -16,7 +15,5 @@
         {% endfor %}
 
     <h3><a href="{% url 'new_topic' %}">add a new topic:</a></h3>
-
-
     </ul>
 {% endblock content %}
